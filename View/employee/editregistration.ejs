@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Employee</title>
+</head>
+<body>
+  <form action="/employee/edit/<%= employee._id %>" method="POST" enctype="multipart/form-data">
+    <input type="text" name="fullName" value="<%= employee.fullName %>" required><br>
+    <input type="number" name="phone" value="<%= employee.phone %>" required><br>
+    <input type="text" name="address" value="<%= employee.address %>" required><br>
+    <select name="state" required>
+      <option value="State1" <%= employee.state === 'State1' ? 'selected' : '' %>>State1</option>
+      <option value="State2" <%= employee.state === 'State2' ? 'selected' : '' %>>State2</option>
+    </select><br>
+    <input type="number" name="zipCode" value="<%= employee.zipCode %>" required><br>
+    <input type="file" name="images" multiple><br>
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>

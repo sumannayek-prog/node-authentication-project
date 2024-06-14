@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Dashboard</title>
+</head>
+<body>
+  <h1>Welcome, <%= employee.fullName %></h1>
+  <div>
+    <div>
+      <% employee.images.forEach(image => { %>
+        <img src="<%= image %>" alt="Employee Image" width="100" height="100">
+      <% }); %>
+    </div>
+    <div>
+      <p>Email: <%= employee.email %></p>
+      <p>Phone: <%= employee.phone %></p>
+      <p>Address: <%= employee.address %></p>
+      <p>State: <%= employee.state %></p>
+      <p>Zip Code: <%= employee.zipCode %></p>
+      <p>Date of Joining: <%= employee.dateOfJoining.toLocaleDateString() %></p>
+    </div>
+  </div>
+  <a href="/employee/edit/<%= employee._id %>">Edit</a>
+  <form action="/employee/delete/<%= employee._id %>" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  <form action="/auth/logout" method="POST">
+    <button type="submit">Logout</button>
+  </form>
+</body>
+</html>
